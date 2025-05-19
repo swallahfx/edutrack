@@ -1,10 +1,11 @@
+```
 name: EduTrack CI
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, development ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ main, development ]
 
 jobs:
   test:
@@ -38,10 +39,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
+    - name: Create logs directory
+      run: mkdir -p logs
+      
     - name: Run migrations
       env:
         DATABASE_URL: postgres://postgres:postgres@localhost:5432/edutrack_test
-        DJANGO_SETTINGS_MODULE: edutrack.settings.development
+        DJANGO_SETTINGS_MODULE: edutrack.settings.test
         SECRET_KEY: github_actions_secret_key
         DEBUG: 'True'
       run: python manage.py migrate
@@ -49,7 +53,7 @@ jobs:
     - name: Run tests
       env:
         DATABASE_URL: postgres://postgres:postgres@localhost:5432/edutrack_test
-        DJANGO_SETTINGS_MODULE: edutrack.settings.development
+        DJANGO_SETTINGS_MODULE: edutrack.settings.test
         SECRET_KEY: github_actions_secret_key
         DEBUG: 'True'
       run: |
@@ -60,3 +64,4 @@ jobs:
       run: |
         pip install flake8
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+```
