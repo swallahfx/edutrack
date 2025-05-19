@@ -38,13 +38,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
-    - name: Create logs directory
-      run: mkdir -p logs
-      
     - name: Run migrations
       env:
         DATABASE_URL: postgres://postgres:postgres@localhost:5432/edutrack_test
-        DJANGO_SETTINGS_MODULE: edutrack.settings.development
+        DJANGO_SETTINGS_MODULE: edutrack.settings.ci
         SECRET_KEY: github_actions_secret_key
         DEBUG: 'True'
       run: python manage.py migrate
@@ -52,7 +49,7 @@ jobs:
     - name: Run tests
       env:
         DATABASE_URL: postgres://postgres:postgres@localhost:5432/edutrack_test
-        DJANGO_SETTINGS_MODULE: edutrack.settings.development
+        DJANGO_SETTINGS_MODULE: edutrack.settings.ci
         SECRET_KEY: github_actions_secret_key
         DEBUG: 'True'
       run: |
