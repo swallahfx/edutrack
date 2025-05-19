@@ -60,8 +60,8 @@ The project follows a modular architecture with separate apps for different conc
    ```
 
 6. Access the application:
-   - API: http://localhost:8000/api/
-   - Admin: http://localhost:8000/admin/
+   - API: http://localhost:8010/api/
+   - Admin: http://localhost:8010/admin/
    - API Documentation: http://localhost:8000/api/docs/
 
 ### Without Docker
@@ -107,26 +107,6 @@ The API is self-documented using drf-spectacular, which provides Swagger and ReD
 - Swagger UI: `/api/schema/swagger-ui/`
 - ReDoc: `/api/schema/redoc/`
 
-## Testing
-
-Run tests with coverage:
-
-```
-docker-compose exec web python manage.py test
-```
-
-Or without Docker:
-
-```
-python manage.py test
-```
-
-For coverage report:
-
-```
-coverage run --source='.' manage.py test
-coverage report
-```
 
 ## Design Decisions
 
