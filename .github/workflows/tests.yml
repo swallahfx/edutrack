@@ -44,7 +44,7 @@ jobs:
     - name: Run migrations
       env:
         DATABASE_URL: postgres://postgres:postgres@localhost:5432/edutrack_test
-        DJANGO_SETTINGS_MODULE: edutrack.settings.test
+        DJANGO_SETTINGS_MODULE: edutrack.settings.development
         SECRET_KEY: github_actions_secret_key
         DEBUG: 'True'
       run: python manage.py migrate
@@ -52,7 +52,7 @@ jobs:
     - name: Run tests
       env:
         DATABASE_URL: postgres://postgres:postgres@localhost:5432/edutrack_test
-        DJANGO_SETTINGS_MODULE: edutrack.settings.test
+        DJANGO_SETTINGS_MODULE: edutrack.settings.development
         SECRET_KEY: github_actions_secret_key
         DEBUG: 'True'
       run: |
