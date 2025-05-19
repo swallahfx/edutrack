@@ -83,7 +83,7 @@ The project follows a modular architecture with separate apps for different conc
    pip install -r requirements.txt
    ```
 
-4. Create a `.env` file with your environment variables.
+4. Create a `.env` file with your environment variables. you can also copy the contents of sample.env.
 
 5. Run migrations:
    ```
