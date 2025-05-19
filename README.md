@@ -62,13 +62,13 @@ The project follows a modular architecture with separate apps for different conc
 6. Access the application:
    - API: http://localhost:8010/api/
    - Admin: http://localhost:8010/admin/
-   - API Documentation: http://localhost:8000/api/docs/
+   - API Documentation: http://localhost:8010/api/docs/
 
 ### Without Docker
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/edutrack.git
+   git clone https://github.com/swallahfx/edutrack.git
    cd edutrack
    ```
 
